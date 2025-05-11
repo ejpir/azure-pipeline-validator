@@ -130,6 +130,58 @@ This script will:
 2. Show validation results for all test files with the specified number of context lines
 3. Report a summary of validation results
 
+## Example Output
+
+When validating an invalid pipeline file, you'll see detailed error messages with context:
+
+```
+Validating: /Users/nick/azure-pipeline-validator/test/test-invalid.yml
+getSchemaForResource
+resource: /Users/nick/azure-pipeline-validator/test/schema.json
+this.customSchemaProvider: yes
+loadSchema
+❌ /Users/nick/azure-pipeline-validator/test/test-invalid.yml has validation issues:
+
+  Warning at line 13, column 9: Unexpected property invalid_parameter
+
+  8:   - job: TestJob
+  9:     invalid_property: true # Invalid property in job
+  10:     steps:
+  11:       - script: echo "Hello World"
+  12:         name: sayHello
+> 13:         invalid_parameter: true # Invalid parameter for script task
+  14:
+
+
+  Warning at line 9, column 5: Unexpected property invalid_property
+
+  4:
+  5: invalid_key: value # Invalid key at the root level
+  6:
+  7: jobs:
+  8:   - job: TestJob
+> 9:     invalid_property: true # Invalid property in job
+  10:     steps:
+  11:       - script: echo "Hello World"
+  12:         name: sayHello
+  13:         invalid_parameter: true # Invalid parameter for script task
+  14:
+
+
+  Warning at line 5, column 1: Unexpected property invalid_key
+
+  1: # This is an intentionally invalid pipeline file
+  2: trigger:
+  3:   - main
+  4:
+> 5: invalid_key: value # Invalid key at the root level
+  6:
+  7: jobs:
+  8:   - job: TestJob
+  9:     invalid_property: true # Invalid property in job
+  10:     steps:
+```
+
 ## Implementation Details
 
 The validator uses the following components from the azure-pipelines-language-server library, importing directly from TypeScript source files:
