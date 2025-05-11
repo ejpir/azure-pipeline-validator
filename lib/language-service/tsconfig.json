@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"forceConsistentCasingInFileNames": true,
+		"target": "es5",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"declaration": true,
+		"lib": [
+			"es2021",
+			"dom"
+		],
+		"outDir": "./lib",
+		"noUnusedLocals": true
+	},
+	"include": [
+		"src"
+	]
+}

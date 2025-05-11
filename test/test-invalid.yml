@@ -1,0 +1,13 @@
+# This is an intentionally invalid pipeline file
+trigger:
+  - main
+
+invalid_key: value # Invalid key at the root level
+
+jobs:
+  - job: TestJob
+    invalid_property: true # Invalid property in job
+    steps:
+      - script: echo "Hello World"
+        name: sayHello
+        invalid_parameter: true # Invalid parameter for script task

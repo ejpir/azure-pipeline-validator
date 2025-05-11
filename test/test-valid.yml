@@ -1,0 +1,20 @@
+trigger:
+  branches:
+    include:
+      - "*"
+
+parameters:
+  - name: environment
+    type: object
+    default:
+      - dev
+      - eng
+      - tst
+
+stages:
+  - ${{ each value in parameters.environment }}:
+      - ${{ if or(eq(value, 'eng'), eq(value, 'dev'), eq(value, 'tst')) }}:
+          - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/develop') }}:
+              - template: deployment.yml
+                parameters:
+                  envName: ${{value}}

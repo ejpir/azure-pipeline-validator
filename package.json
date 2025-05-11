@@ -1,0 +1,29 @@
+{
+  "name": "azure-pipeline-validator",
+  "version": "1.0.0",
+  "description": "Azure Pipeline YAML Validator",
+  "main": "azure-pipeline-validator.js",
+  "bin": {
+    "azure-pipeline-validator": "./bin/validate"
+  },
+  "scripts": {
+    "test": "node test/test-azure-pipeline-validator.js",
+    "validate": "./bin/validate",
+    "validate:file": "./bin/validate"
+  },
+  "dependencies": {
+    "js-yaml": "^3.13.1",
+    "jsonc-parser": "^3.3.1",
+    "vscode-languageserver-textdocument": "^1.0.8",
+    "vscode-languageserver-types": "^3.17.3",
+    "vscode-nls": "^5.2.0",
+    "vscode-uri": "^3.0.7",
+    "yaml-ast-parser": "^0.0.43",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "source-map-support": "^0.5.19",
+    "ts-node": "^9.1.1",
+    "typescript": "~4.4.4"
+  }
+}

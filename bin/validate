@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Azure Pipeline Validator shell script wrapper
+# This passes all arguments to the TypeScript implementation
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PARENT_DIR="$(dirname "$DIR")"
+
+# Run the TypeScript file directly using ts-node
+"$PARENT_DIR/node_modules/.bin/ts-node" "$PARENT_DIR/azure-pipeline-validator.ts" "$@"
