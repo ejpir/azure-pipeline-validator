@@ -111,6 +111,23 @@ async function validateMyPipeline() {
 }
 ```
 
+## Docker Usage
+
+The validator can be run from a Docker container:
+
+```bash
+# Build the Docker image
+docker build -t azure-pipeline-validator .
+
+# Validate a pipeline file
+docker run -v $(pwd):/data azure-pipeline-validator /data/pipeline.yml /data/schema.json
+
+# With context lines
+docker run -v $(pwd):/data azure-pipeline-validator /data/pipeline.yml /data/schema.json 10
+```
+
+When using Docker, mount your working directory as a volume to make your YAML and schema files accessible to the container.
+
 ## Running Tests
 
 A test script is provided to demonstrate usage:
