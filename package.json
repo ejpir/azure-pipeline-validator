@@ -4,12 +4,12 @@
   "description": "Azure Pipeline YAML Validator",
   "main": "azure-pipeline-validator.js",
   "bin": {
-    "azure-pipeline-validator": "./bin/validate"
+    "azure-pipeline-validator": "./bin/azure-pipeline-validator"
   },
   "scripts": {
     "test": "node test/test-azure-pipeline-validator.js",
-    "validate": "./bin/validate",
-    "validate:file": "./bin/validate"
+    "validate": "./bin/azure-pipeline-validator",
+    "validate:file": "./bin/azure-pipeline-validator"
   },
   "dependencies": {
     "js-yaml": "^3.13.1",

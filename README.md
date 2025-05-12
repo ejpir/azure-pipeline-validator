@@ -29,7 +29,7 @@ You can use the validator in three ways:
 #### 1. Using the bin script (recommended)
 
 ```bash
-./bin/validate <yaml-file> <schema-file> [context-lines]
+./bin/azure-pipeline-validator <yaml-file> <schema-file> [context-lines]
 ```
 
 #### 2. Using npm scripts
@@ -49,12 +49,10 @@ node azure-pipeline-validator.js <yaml-file> <schema-file> [context-lines]
 ```
 
 Examples:
-```bash
-# Basic validation
-./bin/validate pipelines/pipeline.yml test/schema.json
+``bin/`bash
+# Basic validation pipelines/pipeline.yml test/schema.json
 
-# Show 10 lines of context around each error
-./bin/validate pipelines/pipeline.yml test/schema.json 10
+# Show 10 lines of cbin/ontext around each error pipelines/pipeline.yml test/schema.json 10
 ```
 
 ### As a Library
@@ -198,7 +196,7 @@ The implementation consists of:
 
 2. **JavaScript wrapper** (azure-pipeline-validator.js): A simple wrapper that registers ts-node and imports the TypeScript implementation.
 
-3. **Command-line wrapper** (bin/validate): A shell script that simplifies running the validator.
+3.bin/ **Command-line wrapper*: A shell script that simplifies running the validator.
 
 4. **Test framework** (test/test-azure-pipeline-validator.js): Tests for the validator.
 
